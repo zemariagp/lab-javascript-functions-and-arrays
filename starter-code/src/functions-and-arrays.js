@@ -125,6 +125,13 @@ const wordsFind = [
   "disobedience"
 ];
 
+// Iteration#6
+function doesWordExist(arrayOfWords){
+  for (let word of wordsFind){
+    if
+  }
+}
+
 // Counting Repetition
 const wordsCount = [
   "machine",
