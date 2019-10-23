@@ -191,7 +191,62 @@ const matrix = [
   [01, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 01, 89, 19, 67, 48]
 ];
 
-function greatestProduct(matrix) {
-   
+
+// helper functions ----------------------------------
+function fourMultiplier(arrayOfFour) {
+  return arrayOfFour[0] * arrayOfFour[1] * arrayOfFour[2] * arrayOfFour[3];
 }
+
+function operateOnLine(line) {
+  let copyLine = line.slice()
+  let lineResultsArray = [];
+  while (copyLine.length >= 4) {
+      arrayOfFour = copyLine.slice(0, 4);
+      lineResultsArray.push(fourMultiplier(arrayOfFour));
+      copyLine.shift();
+  }
+  return lineResultsArray;
+
+
+}
+
+function rotateMatrix(matrix) {
+  let result = [];
+  for(let i = 0; i < matrix[0].length; i++) {
+      let row = matrix.map(e => e[i]).reverse();
+      result.push(row);
+  }
+  return result;
+};
+
+function maxValueOfArray(arrayOfNumbers) {
+  let max = Math.max(...arrayOfNumbers);
+  return max;
+}
+
+// main function -------------------------------------
+function greatestProduct(matrix) {
+  let results = [];
+
+
+  for (let line of matrix) {
+      results = results.concat(operateOnLine(line));
+      
+  }
+
+  rotateMatrix(matrix);
+
+  for (let line of matrix) {
+      results = results.concat(operateOnLine(line));
+      
+  }
+
+
+
+  let result = maxValueOfArray(results);
+
+  return result;
+
+}
+
 
