@@ -127,12 +127,18 @@ const wordsFind = [
   "disobedience"
 ];
 
-// Iteration#6
-function doesWordExist(arrayOfWords){
-  for (let word of wordsFind){
-    if
-  }
+
+function doesWordExist(arrayOfWords,wordToSearch) {
+for (let word of arrayOfWords) {
+if (wordToSearch===word) {
+  return true;
 }
+
+
+} 
+return false;
+}
+
 
 // Counting Repetition
 const wordsCount = [
@@ -148,5 +154,16 @@ const wordsCount = [
   "disobedience",
   "matter"
 ];
+
+function howManyTimes(arrayOfWords,wordToCount){
+  let counter = 0;
+  for (let word of arrayOfWords){
+    if (word===wordToCount) {
+      counter ++;
+
+    }
+  }
+  return counter;
+}
 
 // Bonus
